@@ -1,0 +1,34 @@
+# Testimonials
+type Testimonial {
+  tId: ID
+  title: String!
+  description: String
+  clientId: ID
+  TState: Int
+  createAt: DateTime
+}
+
+input ITestimonial {
+  tId: ID
+  title: String!
+  description: String
+  clientId: ID
+  TState: Int
+  createAt: DateTime
+}
+
+type Query {
+  """
+  Response for find one Testimonial
+  """
+  getTestimonial(id: ID, testimonialName: String): Testimonial
+  getOneTestimonial(id: ID, uEmail: String): Testimonial
+  getTestimonials: [Testimonial]
+}
+
+type Mutation {
+  """
+  "register testimonial data
+  """
+  newRegisterTestimonial(input: ITestimonial): Response
+}
